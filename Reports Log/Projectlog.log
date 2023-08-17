@@ -1,0 +1,12 @@
+[INFO ] 2023-08-16 09:10:58.981 [main] SeleFramWrk_ORANGE_HRM - Browser setup is completedchrome
+[INFO ] 2023-08-16 09:11:04.509 [main] SeleFramWrk_ORANGE_HRM - URL opened : https://opensource-demo.orangehrmlive.com/
+[INFO ] 2023-08-16 09:11:06.743 [main] SeleFramWrk_ORANGE_HRM - screen shot captured :G:\EclipseWorkspace\SeleFramWrk_ORANGE_HRM\.\ScreenShots\capturetest careen capturing.png
+[INFO ] 2023-08-16 09:12:21.517 [main] SeleFramWrk_ORANGE_HRM - Browser setup is completedchrome
+[INFO ] 2023-08-16 09:12:27.989 [main] SeleFramWrk_ORANGE_HRM - URL opened : https://opensource-demo.orangehrmlive.com/
+[INFO ] 2023-08-16 09:12:30.228 [main] SeleFramWrk_ORANGE_HRM - screen shot captured :G:\EclipseWorkspace\SeleFramWrk_ORANGE_HRM\.\ScreenShots\capturetest careen capturing.png
+[INFO ] 2023-08-16 09:16:18.396 [main] SeleFramWrk_ORANGE_HRM - Browser setup is completedchrome
+[INFO ] 2023-08-16 09:16:24.685 [main] SeleFramWrk_ORANGE_HRM - URL opened : https://opensource-demo.orangehrmlive.com/
+[ERROR] 2023-08-16 09:16:26.899 [main] SeleFramWrk_ORANGE_HRM - Creenshot capture failed :Source '.\ScreenShots\test careen capturing_20230816_091626.png' does not exist
+[INFO ] 2023-08-16 09:17:43.730 [main] SeleFramWrk_ORANGE_HRM - Browser setup is completedchrome
+[INFO ] 2023-08-16 09:17:50.036 [main] SeleFramWrk_ORANGE_HRM - URL opened : https://opensource-demo.orangehrmlive.com/
+[ERROR] 2023-08-16 09:17:52.221 [main] SeleFramWrk_ORANGE_HRM - Creenshot capture failed :Source '.\ScreenShots\test careen capturing 20230816_091752.png' does not exist

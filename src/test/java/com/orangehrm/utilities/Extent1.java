@@ -75,6 +75,7 @@ public class Extent1 implements ITestListener {
 			test.log(Status.PASS, MarkupHelper.createLabel("the name of passed method is : "+result.getName(), ExtentColor.GREEN));
 			
 		}
+		
 	
 
 }

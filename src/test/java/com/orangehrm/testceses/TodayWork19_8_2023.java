@@ -24,6 +24,7 @@ public class TodayWork19_8_2023 {
 	
 	WebDriver driver;
 	Logger Log;
+	Logger lo;
 	ReadConfigg readConfigg;
 	public void setup() {
 		

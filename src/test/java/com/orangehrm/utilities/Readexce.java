@@ -7,17 +7,16 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ReadExcel1 {
+public class Readexce {
 	
 	
-	private FileInputStream fis;
-	private XSSFWorkbook workBook;
-	private XSSFSheet sheet;
-	private XSSFRow row;
-	private XSSFCell cell;
+	FileInputStream fis;
+	XSSFWorkbook workBook;
+	XSSFSheet sheet;
+	XSSFCell cell;
+	XSSFRow row;
 	
-	public ReadExcel1() {
-		
+	public Readexce() {
 		try {
 			fis=new FileInputStream("./Test Data/Test Data.xlsx");
 			workBook=new XSSFWorkbook(fis);
@@ -25,28 +24,30 @@ public class ReadExcel1 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-	public String getCellValue(String sheetName,int rowNo,int colNo ) {
+	
+	public String getCellValue(String sheetName,int rowNo,int  cellNo) {
+
+			sheet=workBook.getSheet(sheetName);
+			cell=sheet.getRow(rowNo).getCell(cellNo);
+			return cell.getStringCellValue();	
+	}
+	public int getTotalCol(String sheetName) {
 		
 		sheet=workBook.getSheet(sheetName);
-		cell=sheet.getRow(rowNo).getCell(colNo);
-		return cell.getStringCellValue();
+		int ttlCol=sheet.getRow(0).getLastCellNum();
+		return ttlCol;
 		
-	}
-	public int getTotalColumn(String sheetname) {
 		
-		sheet=workBook.getSheet(sheetname);
-		int row=sheet.getRow(0).getLastCellNum();
-		return row;
 	}
 	public int getTotalRow(String sheetName) {
-		
 		sheet=workBook.getSheet(sheetName);
-		int cell=sheet.getLastRowNum();
-		return cell;
-		
+		int ttlRow=sheet.getLastRowNum();
+		return ttlRow;
+				
 	}
+	
+	
 	
 
 }

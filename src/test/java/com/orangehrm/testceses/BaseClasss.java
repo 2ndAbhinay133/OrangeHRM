@@ -2,7 +2,9 @@ package com.orangehrm.testceses;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -21,17 +23,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseClasss {
 	
 	WebDriver driver;
+	Logger Log;
 	ReadConfigg readConfigg;
-	Logger Logger;
-	
 	public void setup() {
 		
-		readConfigg=new ReadConfigg();
 		String projectName=new File(System.getProperty("user.dir")).getName();
-		Logger=LogManager.getLogger(projectName);
+		String timeStamp=new SimpleDateFormat().format(new Date());
+		Log=LogManager.getLogger(projectName);
 		String browser=readConfigg.getBrowser();
 		
-		switch(browser){
+		switch(browser) {
 		
 		case "chrome":
 			WebDriverManager.chromedriver().setup();
@@ -46,41 +47,44 @@ public class BaseClasss {
 			driver=new FirefoxDriver();
 			break;
 		default:
-			Logger.error("Invalid browser name provided"+browser);
+			Log.error("invalid browser name provided");
 			break;
 			
 		}
 		
 		if(driver!=null) {
+			
+			Log.info("browser setup is completed");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			Logger.info("Borwser setup is completed");
 			driver.get(readConfigg.getBaseUrl());
-			Logger.info("Base URl Opened"+browser);
+			Log.info("Base Url is opened"+ readConfigg.getBaseUrl());
+			
+			
 		}
-		
 	}
-	public void tesrDown() {
+	
+	public void tearDown() {
+		
 		if(driver!=null) {
 			driver.close();
 			driver.quit();
 		}
 	}
-	public void captureScreenShot(WebDriver driver, String testName) {
-		
+	public void captureScreenSHot(WebDriver driver ,String testName) {
 		if(driver instanceof TakesScreenshot) {
-				TakesScreenshot take= (TakesScreenshot)driver;
-				File src=take.getScreenshotAs(OutputType.FILE);
-				File dest=new File("./ScreenShots/capture"+testName+".png");
 			
-				try {
-					FileUtils.copyFile(src, dest);
-					Logger.info("ScreenShot captured"+dest.getAbsolutePath());
-				} catch (IOException e) {
-					Logger.error("Screen capturing failed"+e.getMessage());
-				}
-				
+			TakesScreenshot take=(TakesScreenshot)driver;
+			File src=take.getScreenshotAs(OutputType.FILE);
+			File dest=new File("./ScreenShots/capture"+testName+".png");
+			try {
+				FileUtils.copyFile(src, dest);
+				Log.info("ScreenShot captured :"+dest.getAbsolutePath());
+			} catch (IOException e) {
+				Log.error("Cscreen capturing failed"+e.getMessage());				
+			}
+			
 		}else {
-			Logger.error("driver not supprted to takesscren shot");
+			Log.error("driver not supprted to take screen shot");
 		}
 		
 		
